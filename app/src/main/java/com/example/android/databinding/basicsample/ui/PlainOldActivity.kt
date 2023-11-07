@@ -47,11 +47,9 @@ class PlainOldActivity : AppCompatActivity() {
 
         val binding : PlainActivityBinding =
             DataBindingUtil.setContentView(this, R.layout.plain_activity)
-        binding.name = "Rey"
-        binding.lastName = "Mercado"
+        binding.viewmodel = viewModel
 
         // TODO: Explicitly setting initial values is a bad pattern. We'll fix that.
-//        updateName()
         updateLikes()
     }
 
@@ -59,18 +57,12 @@ class PlainOldActivity : AppCompatActivity() {
      * This method is triggered by the `android:onclick` attribute in the layout. It puts business
      * logic in the activity, which is not ideal. We should do something about that.
      */
-    fun onLike(view: View) {
-        viewModel.onLike()
-        updateLikes()
-    }
+
 
     /**
      * So much findViewById! We'll fix that with Data Binding.
      */
-//    private fun updateName() {
-//        findViewById<TextView>(R.id.plain_name).text = viewModel.name
-//        findViewById<TextView>(R.id.plain_lastname).text = viewModel.lastName
-//    }
+
 
     /**
      * This method has many problems:
